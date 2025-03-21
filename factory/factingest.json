@@ -1,0 +1,9 @@
+{
+	"name": "factingest",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "21eda3f1-bf74-4d39-b7d2-49761bc41d42",
+		"tenantId": "03b7f72d-efba-4c13-914f-6180cda2a084"
+	}
+}

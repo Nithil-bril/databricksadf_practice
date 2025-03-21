@@ -1,0 +1,16 @@
+{
+	"name": "onprem_products",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "MySqlDBonprem",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "MySqlTable",
+		"schema": [],
+		"typeProperties": {
+			"tableName": "`products`"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
