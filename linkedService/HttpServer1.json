@@ -1,12 +1,15 @@
 {
 	"name": "HttpServer1",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
 	"properties": {
 		"annotations": [],
 		"type": "HttpServer",
 		"typeProperties": {
 			"url": "https://github.com/Nithil-bril/databricksadf_practice/blob/main/darshilparmar-tokyo-olympic-azure-data-engineering-project-61c85ac/darshilparmar-tokyo-olympic-azure-data-engineering-project-61c85ac/data/Athletes.csv",
 			"enableServerCertificateValidation": true,
-			"authenticationType": "Anonymous"
+			"authenticationType": "Basic",
+			"userName": "Nithil-bril",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI0Njc3Yzk0Yy1iYTk4LTRlMDUtYWU1ZC02MDUzOTk2MzNhYzMiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
 		},
 		"connectVia": {
 			"referenceName": "integrationRuntime1",
