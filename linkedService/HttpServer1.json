@@ -12,6 +12,5 @@
 			"referenceName": "integrationRuntime1",
 			"type": "IntegrationRuntimeReference"
 		}
-	},
-	"functionTimeout": "00:10:00"
+	}
 }
