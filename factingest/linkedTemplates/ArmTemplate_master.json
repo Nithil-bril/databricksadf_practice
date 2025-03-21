@@ -1,0 +1,154 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "factingest"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage1'"
+		},
+		"Azurededipooldwh_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'Azurededipooldwh'"
+		},
+		"FileServer1_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'FileServer1'"
+		},
+		"HttpServer1_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'HttpServer1'"
+		},
+		"MySqlDBonprem_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'MySqlDBonprem'"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://strgaccntingest.dfs.core.windows.net/"
+		},
+		"Azurededipooldwh_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "sqlpoolserveringest.database.windows.net"
+		},
+		"Azurededipooldwh_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "sqlpoolingest"
+		},
+		"Azurededipooldwh_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "selva"
+		},
+		"FileServer1_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "C:\\"
+		},
+		"FileServer1_properties_typeProperties_userId": {
+			"type": "string",
+			"defaultValue": "selva A"
+		},
+		"HttpServer1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://raw.githubusercontent.com/"
+		},
+		"HttpServer1_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Nithil-bril"
+		},
+		"MySqlDBonprem_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "127.0.0.1"
+		},
+		"MySqlDBonprem_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "super_market"
+		},
+		"MySqlDBonprem_properties_typeProperties_username": {
+			"type": "string",
+			"defaultValue": "root"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "factingest_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureDataLakeStorage1_accountKey": {
+						"value": "[parameters('AzureDataLakeStorage1_accountKey')]"
+					},
+					"Azurededipooldwh_password": {
+						"value": "[parameters('Azurededipooldwh_password')]"
+					},
+					"FileServer1_password": {
+						"value": "[parameters('FileServer1_password')]"
+					},
+					"HttpServer1_password": {
+						"value": "[parameters('HttpServer1_password')]"
+					},
+					"MySqlDBonprem_password": {
+						"value": "[parameters('MySqlDBonprem_password')]"
+					},
+					"AzureDataLakeStorage1_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"
+					},
+					"Azurededipooldwh_properties_typeProperties_server": {
+						"value": "[parameters('Azurededipooldwh_properties_typeProperties_server')]"
+					},
+					"Azurededipooldwh_properties_typeProperties_database": {
+						"value": "[parameters('Azurededipooldwh_properties_typeProperties_database')]"
+					},
+					"Azurededipooldwh_properties_typeProperties_userName": {
+						"value": "[parameters('Azurededipooldwh_properties_typeProperties_userName')]"
+					},
+					"FileServer1_properties_typeProperties_host": {
+						"value": "[parameters('FileServer1_properties_typeProperties_host')]"
+					},
+					"FileServer1_properties_typeProperties_userId": {
+						"value": "[parameters('FileServer1_properties_typeProperties_userId')]"
+					},
+					"HttpServer1_properties_typeProperties_url": {
+						"value": "[parameters('HttpServer1_properties_typeProperties_url')]"
+					},
+					"HttpServer1_properties_typeProperties_userName": {
+						"value": "[parameters('HttpServer1_properties_typeProperties_userName')]"
+					},
+					"MySqlDBonprem_properties_typeProperties_server": {
+						"value": "[parameters('MySqlDBonprem_properties_typeProperties_server')]"
+					},
+					"MySqlDBonprem_properties_typeProperties_database": {
+						"value": "[parameters('MySqlDBonprem_properties_typeProperties_database')]"
+					},
+					"MySqlDBonprem_properties_typeProperties_username": {
+						"value": "[parameters('MySqlDBonprem_properties_typeProperties_username')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}

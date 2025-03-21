@@ -1,0 +1,57 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "factingest"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"Azurededipooldwh_password": {
+			"value": ""
+		},
+		"FileServer1_password": {
+			"value": ""
+		},
+		"HttpServer1_password": {
+			"value": ""
+		},
+		"MySqlDBonprem_password": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://strgaccntingest.dfs.core.windows.net/"
+		},
+		"Azurededipooldwh_properties_typeProperties_server": {
+			"value": "sqlpoolserveringest.database.windows.net"
+		},
+		"Azurededipooldwh_properties_typeProperties_database": {
+			"value": "sqlpoolingest"
+		},
+		"Azurededipooldwh_properties_typeProperties_userName": {
+			"value": "selva"
+		},
+		"FileServer1_properties_typeProperties_host": {
+			"value": "C:\\"
+		},
+		"FileServer1_properties_typeProperties_userId": {
+			"value": "selva A"
+		},
+		"HttpServer1_properties_typeProperties_url": {
+			"value": "https://raw.githubusercontent.com/"
+		},
+		"HttpServer1_properties_typeProperties_userName": {
+			"value": "Nithil-bril"
+		},
+		"MySqlDBonprem_properties_typeProperties_server": {
+			"value": "127.0.0.1"
+		},
+		"MySqlDBonprem_properties_typeProperties_database": {
+			"value": "super_market"
+		},
+		"MySqlDBonprem_properties_typeProperties_username": {
+			"value": "root"
+		}
+	}
+}
