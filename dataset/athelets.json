@@ -12,7 +12,8 @@
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
-				"type": "HttpServerLocation"
+				"type": "HttpServerLocation",
+				"relativeUrl": "Nithil-bril/databricksadf_practice/refs/heads/main/Athletes.txt"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
