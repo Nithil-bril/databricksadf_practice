@@ -13,7 +13,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "athelets",
+				"fileName": "athelets.csv",
 				"folderPath": "athelets",
 				"fileSystem": "olympic-data"
 			},
