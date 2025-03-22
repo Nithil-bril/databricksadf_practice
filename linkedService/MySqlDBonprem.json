@@ -7,12 +7,12 @@
 		"typeProperties": {
 			"server": "127.0.0.1",
 			"port": 3306,
-			"database": "super_market",
+			"database": "localsys",
 			"username": "root",
 			"sslMode": 1,
 			"useSystemTrustStore": 0,
 			"driverVersion": "v2",
-			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI3ZDZkNDg1YS0xODkxLTRlNzUtOTViMS03OGUzMzcwZWEyZDMiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI4MzIzYzdkNi1mN2EwLTQ3OTAtYjQ2My03ZWEwMzRjMTg3NjQiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
 		},
 		"connectVia": {
 			"referenceName": "integrationRuntime1",
