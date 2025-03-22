@@ -276,6 +276,36 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/multidataset')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "HttpServer1",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "tokyoolmpicdata"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "HttpServerLocation",
+						"relativeUrl": "/Nithil-bril/databricksadf_practice/tree/main/olympicdata"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/HttpServer1')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/onprem_products')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -348,6 +378,10 @@
 						"typeProperties": {
 							"source": {
 								"type": "DelimitedTextSource",
+								"additionalColumns": {
+									"type": "Expression",
+									"value": "@utcNow()"
+								},
 								"storeSettings": {
 									"type": "HttpReadSettings",
 									"requestMethod": "GET"
@@ -404,6 +438,57 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/athelets')]",
+				"[concat(variables('factoryId'), '/datasets/target')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/getmeta')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Get Metadata1",
+						"type": "GetMetadata",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"dataset": {
+								"referenceName": "target",
+								"type": "DatasetReference",
+								"parameters": {}
+							},
+							"fieldList": [
+								"columnCount",
+								"exists"
+							],
+							"storeSettings": {
+								"type": "AzureBlobFSReadSettings",
+								"recursive": true,
+								"enablePartitionDiscovery": false
+							},
+							"formatSettings": {
+								"type": "DelimitedTextReadSettings"
+							}
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"folder": {
+					"name": "tokyoolympicdata"
+				},
+				"annotations": []
+			},
+			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/target')]"
 			]
 		},
@@ -541,8 +626,7 @@
 						"interval": 1,
 						"startTime": "2025-03-21T13:30:00",
 						"endTime": "2025-03-23T07:43:00",
-						"timeZone": "India Standard Time",
-						"schedule": {}
+						"timeZone": "India Standard Time"
 					}
 				}
 			},
