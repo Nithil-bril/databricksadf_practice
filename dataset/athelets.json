@@ -13,7 +13,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "HttpServerLocation",
-				"relativeUrl": "Nithil-bril/databricksadf_practice/refs/heads/main/Athletes.txt"
+				"relativeUrl": "Nithil-bril/databricksadf_practice/refs/heads/main/olympicdata/Athletes.txt"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
