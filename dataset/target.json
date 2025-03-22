@@ -13,9 +13,9 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "Athlets.txt",
-				"folderPath": "athelets",
-				"fileSystem": "olympic-data"
+				"fileName": "test.csv",
+				"folderPath": "testing",
+				"fileSystem": "olympicdata"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
