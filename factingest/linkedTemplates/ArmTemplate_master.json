@@ -53,7 +53,7 @@
 		},
 		"HttpServer1_properties_typeProperties_url": {
 			"type": "string",
-			"defaultValue": "https://raw.githubusercontent.com/"
+			"defaultValue": "https://raw.githubusercontent.com/Nithil-bril/databricksadf_practice/refs/heads/main/Athletes.txt"
 		},
 		"HttpServer1_properties_typeProperties_userName": {
 			"type": "string",

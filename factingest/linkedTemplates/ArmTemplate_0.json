@@ -53,7 +53,7 @@
 		},
 		"HttpServer1_properties_typeProperties_url": {
 			"type": "string",
-			"defaultValue": "https://raw.githubusercontent.com/"
+			"defaultValue": "https://raw.githubusercontent.com/Nithil-bril/databricksadf_practice/refs/heads/main/Athletes.txt"
 		},
 		"HttpServer1_properties_typeProperties_userName": {
 			"type": "string",
@@ -232,8 +232,7 @@
 				"type": "DelimitedText",
 				"typeProperties": {
 					"location": {
-						"type": "HttpServerLocation",
-						"relativeUrl": "Nithil-bril/databricksadf_practice/refs/heads/main/olympicdata/Athletes.txt"
+						"type": "HttpServerLocation"
 					},
 					"columnDelimiter": ",",
 					"escapeChar": "\\",
@@ -378,6 +377,12 @@
 						"typeProperties": {
 							"source": {
 								"type": "DelimitedTextSource",
+								"additionalColumns": [
+									{
+										"name": "modifiedby",
+										"value": "Abinaya"
+									}
+								],
 								"storeSettings": {
 									"type": "HttpReadSettings",
 									"requestMethod": "GET"
@@ -390,7 +395,13 @@
 								"type": "DelimitedTextSink",
 								"storeSettings": {
 									"type": "AzureBlobFSWriteSettings",
-									"copyBehavior": "PreserveHierarchy"
+									"copyBehavior": "PreserveHierarchy",
+									"metadata": [
+										{
+											"name": "modifiedby",
+											"value": "Abinaya"
+										}
+									]
 								},
 								"formatSettings": {
 									"type": "DelimitedTextWriteSettings",

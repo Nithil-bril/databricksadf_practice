@@ -39,7 +39,7 @@
 			"value": "selva A"
 		},
 		"HttpServer1_properties_typeProperties_url": {
-			"value": "https://raw.githubusercontent.com/"
+			"value": "https://raw.githubusercontent.com/Nithil-bril/databricksadf_practice/refs/heads/main/Athletes.txt"
 		},
 		"HttpServer1_properties_typeProperties_userName": {
 			"value": "Nithil-bril"
