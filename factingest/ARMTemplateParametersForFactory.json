@@ -5,6 +5,9 @@
 		"factoryName": {
 			"value": "factingest"
 		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
 		"AzureDataLakeStorage1_accountKey": {
 			"value": ""
 		},
@@ -14,10 +17,16 @@
 		"FileServer1_password": {
 			"value": ""
 		},
+		"GitHub1_credential": {
+			"value": ""
+		},
 		"HttpServer1_password": {
 			"value": ""
 		},
 		"MySqlDBonprem_password": {
+			"value": ""
+		},
+		"RestService1_password": {
 			"value": ""
 		},
 		"AzureDataLakeStorage1_properties_typeProperties_url": {
@@ -38,8 +47,11 @@
 		"FileServer1_properties_typeProperties_userId": {
 			"value": "selva A"
 		},
+		"GitHub1_properties_typeProperties_username": {
+			"value": "Nithil-bril"
+		},
 		"HttpServer1_properties_typeProperties_url": {
-			"value": "https://raw.githubusercontent.com/Nithil-bril/databricksadf_practice/refs/heads/main/Athletes.txt"
+			"value": "https://raw.githubusercontent.com/"
 		},
 		"HttpServer1_properties_typeProperties_userName": {
 			"value": "Nithil-bril"
@@ -48,10 +60,16 @@
 			"value": "127.0.0.1"
 		},
 		"MySqlDBonprem_properties_typeProperties_database": {
-			"value": "super_market"
+			"value": "localsys"
 		},
 		"MySqlDBonprem_properties_typeProperties_username": {
 			"value": "root"
+		},
+		"RestService1_properties_typeProperties_url": {
+			"value": "https://raw.githubusercontent.com/"
+		},
+		"RestService1_properties_typeProperties_userName": {
+			"value": "Nithil-bril"
 		}
 	}
 }
