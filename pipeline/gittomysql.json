@@ -86,7 +86,8 @@
 										"TargetPath": {
 											"value": "@item().TargetPath",
 											"type": "Expression"
-										}
+										},
+										"foldername": "none"
 									}
 								}
 							]
