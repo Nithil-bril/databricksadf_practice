@@ -15,16 +15,13 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"dataset": {
-						"referenceName": "target",
-						"type": "DatasetReference"
-					},
 					"fieldList": [
 						"columnCount",
 						"exists"
 					],
 					"storeSettings": {
 						"type": "AzureBlobFSReadSettings",
+						"recursive": true,
 						"enablePartitionDiscovery": false
 					},
 					"formatSettings": {
