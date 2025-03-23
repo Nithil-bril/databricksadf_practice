@@ -7,10 +7,12 @@
 		},
 		"parameters": {
 			"TargetPath": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "none"
 			},
 			"foldername": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "none"
 			}
 		},
 		"annotations": [],
