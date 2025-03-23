@@ -1,15 +1,12 @@
 {
-	"name": "Tar",
+	"name": "sourcegit",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "AzureBlobStorage1",
+			"referenceName": "HttpServer1",
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
-			"TargetPath": {
-				"type": "string"
-			},
-			"foldername": {
+			"giturl": {
 				"type": "string"
 			}
 		},
@@ -17,16 +14,11 @@
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
-				"type": "AzureBlobStorageLocation",
-				"fileName": {
-					"value": "@dataset().TargetPath",
+				"type": "HttpServerLocation",
+				"relativeUrl": {
+					"value": "@dataset().giturl",
 					"type": "Expression"
-				},
-				"folderPath": {
-					"value": "@concat('targetfolder/',dataset().foldername)",
-					"type": "Expression"
-				},
-				"container": "olympicdata"
+				}
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",

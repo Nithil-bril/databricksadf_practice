@@ -1,7 +1,31 @@
 {
-	"name": "gittomysql",
+	"name": "gittoblob",
 	"properties": {
 		"activities": [
+			{
+				"name": "Lookup1",
+				"type": "Lookup",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "MySqlSource",
+						"query": "Select * from metadata"
+					},
+					"dataset": {
+						"referenceName": "MySqlTable1",
+						"type": "DatasetReference"
+					},
+					"firstRowOnly": false
+				}
+			},
 			{
 				"name": "ForEach1",
 				"type": "ForEach",
@@ -19,12 +43,38 @@
 						"value": "@activity('Lookup1').output.value",
 						"type": "Expression"
 					},
-					"isSequential": false,
 					"activities": [
+						{
+							"name": "Web1",
+							"type": "WebActivity",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"method": "GET",
+								"url": {
+									"value": "@concat('https://raw.githubusercontent.com/',item().giturl)",
+									"type": "Expression"
+								}
+							}
+						},
 						{
 							"name": "Copy data1",
 							"type": "Copy",
-							"dependsOn": [],
+							"dependsOn": [
+								{
+									"activity": "Web1",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
 							"policy": {
 								"timeout": "0.12:00:00",
 								"retry": 0,
@@ -37,9 +87,8 @@
 								"source": {
 									"type": "DelimitedTextSource",
 									"storeSettings": {
-										"type": "AzureBlobStorageReadSettings",
-										"recursive": true,
-										"enablePartitionDiscovery": false
+										"type": "HttpReadSettings",
+										"requestMethod": "GET"
 									},
 									"formatSettings": {
 										"type": "DelimitedTextReadSettings"
@@ -68,11 +117,11 @@
 							},
 							"inputs": [
 								{
-									"referenceName": "source",
+									"referenceName": "sourcegit",
 									"type": "DatasetReference",
 									"parameters": {
-										"SourcePath": {
-											"value": "@item().SourcePath",
+										"giturl": {
+											"value": "@item().giturl",
 											"type": "Expression"
 										}
 									}
@@ -84,7 +133,11 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"TargetPath": {
-											"value": "@item().TargetPath",
+											"value": "@item().Targetpath",
+											"type": "Expression"
+										},
+										"foldername": {
+											"value": "@item().foldername",
 											"type": "Expression"
 										}
 									}
@@ -92,29 +145,6 @@
 							]
 						}
 					]
-				}
-			},
-			{
-				"name": "Lookup1",
-				"type": "Lookup",
-				"dependsOn": [],
-				"policy": {
-					"timeout": "0.12:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
-					"source": {
-						"type": "MySqlSource"
-					},
-					"dataset": {
-						"referenceName": "MySqlTable1",
-						"type": "DatasetReference"
-					},
-					"firstRowOnly": false
 				}
 			}
 		],
