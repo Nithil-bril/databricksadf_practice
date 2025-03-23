@@ -148,11 +148,6 @@
 				}
 			}
 		],
-		"variables": {
-			"Webout": {
-				"type": "String"
-			}
-		},
 		"folder": {
 			"name": "tokyoolympicdata"
 		},
