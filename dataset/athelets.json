@@ -1,10 +1,6 @@
 {
 	"name": "athelets",
 	"properties": {
-		"linkedServiceName": {
-			"referenceName": "HttpServer1",
-			"type": "LinkedServiceReference"
-		},
 		"folder": {
 			"name": "tokyoolmpicdata"
 		},

@@ -1,10 +1,6 @@
 {
 	"name": "car_git_ds",
 	"properties": {
-		"linkedServiceName": {
-			"referenceName": "githttpfinal",
-			"type": "LinkedServiceReference"
-		},
 		"parameters": {
 			"loadtype": {
 				"type": "string"
