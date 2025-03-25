@@ -5,6 +5,11 @@
 			"referenceName": "AzureSqlDatabasecar",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"tablename": {
+				"type": "string"
+			}
+		},
 		"folder": {
 			"name": "carprojectfulload"
 		},
@@ -67,7 +72,10 @@
 		],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "carsales_data"
+			"table": {
+				"value": "@dataset().tablename",
+				"type": "Expression"
+			}
 		}
 	}
 }
