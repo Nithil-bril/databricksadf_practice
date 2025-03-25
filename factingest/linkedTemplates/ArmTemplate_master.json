@@ -15,6 +15,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage1'"
 		},
+		"AzureSqlDatabasecar_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'AzureSqlDatabasecar'"
+		},
 		"Azurededipooldwh_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'Azurededipooldwh'"
@@ -39,9 +43,25 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'RestService1'"
 		},
+		"githttpfinal_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'githttpfinal'"
+		},
 		"AzureDataLakeStorage1_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://strgaccntingest.dfs.core.windows.net/"
+		},
+		"AzureSqlDatabasecar_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "abinaya.database.windows.net"
+		},
+		"AzureSqlDatabasecar_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "sqldbazure"
+		},
+		"AzureSqlDatabasecar_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "abinaya"
 		},
 		"Azurededipooldwh_properties_typeProperties_server": {
 			"type": "string",
@@ -95,6 +115,14 @@
 			"type": "string",
 			"defaultValue": "Nithil-bril"
 		},
+		"githttpfinal_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://raw.githubusercontent.com/"
+		},
+		"githttpfinal_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Nithil-bril"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -122,6 +150,12 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
+					"AzureSqlDatabasecar_password": {
+						"value": "[parameters('AzureSqlDatabasecar_password')]"
+					},
+					"githttpfinal_password": {
+						"value": "[parameters('githttpfinal_password')]"
+					},
 					"AzureBlobStorage1_connectionString": {
 						"value": "[parameters('AzureBlobStorage1_connectionString')]"
 					},
@@ -145,6 +179,21 @@
 					},
 					"RestService1_password": {
 						"value": "[parameters('RestService1_password')]"
+					},
+					"AzureSqlDatabasecar_properties_typeProperties_server": {
+						"value": "[parameters('AzureSqlDatabasecar_properties_typeProperties_server')]"
+					},
+					"AzureSqlDatabasecar_properties_typeProperties_database": {
+						"value": "[parameters('AzureSqlDatabasecar_properties_typeProperties_database')]"
+					},
+					"AzureSqlDatabasecar_properties_typeProperties_userName": {
+						"value": "[parameters('AzureSqlDatabasecar_properties_typeProperties_userName')]"
+					},
+					"githttpfinal_properties_typeProperties_url": {
+						"value": "[parameters('githttpfinal_properties_typeProperties_url')]"
+					},
+					"githttpfinal_properties_typeProperties_userName": {
+						"value": "[parameters('githttpfinal_properties_typeProperties_userName')]"
 					},
 					"AzureDataLakeStorage1_properties_typeProperties_url": {
 						"value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"
@@ -191,6 +240,26 @@
 				}
 			},
 			"dependsOn": []
+		},
+		{
+			"name": "factingest_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'factingest_ArmTemplate_0')]"
+			]
 		}
 	]
 }

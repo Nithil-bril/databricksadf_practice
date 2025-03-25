@@ -11,6 +11,9 @@
 		"AzureDataLakeStorage1_accountKey": {
 			"value": ""
 		},
+		"AzureSqlDatabasecar_password": {
+			"value": ""
+		},
 		"Azurededipooldwh_password": {
 			"value": ""
 		},
@@ -29,8 +32,20 @@
 		"RestService1_password": {
 			"value": ""
 		},
+		"githttpfinal_password": {
+			"value": ""
+		},
 		"AzureDataLakeStorage1_properties_typeProperties_url": {
 			"value": "https://strgaccntingest.dfs.core.windows.net/"
+		},
+		"AzureSqlDatabasecar_properties_typeProperties_server": {
+			"value": "abinaya.database.windows.net"
+		},
+		"AzureSqlDatabasecar_properties_typeProperties_database": {
+			"value": "sqldbazure"
+		},
+		"AzureSqlDatabasecar_properties_typeProperties_userName": {
+			"value": "abinaya"
 		},
 		"Azurededipooldwh_properties_typeProperties_server": {
 			"value": "sqlpoolserveringest.database.windows.net"
@@ -69,6 +84,12 @@
 			"value": "https://raw.githubusercontent.com/"
 		},
 		"RestService1_properties_typeProperties_userName": {
+			"value": "Nithil-bril"
+		},
+		"githttpfinal_properties_typeProperties_url": {
+			"value": "https://raw.githubusercontent.com/"
+		},
+		"githttpfinal_properties_typeProperties_userName": {
 			"value": "Nithil-bril"
 		}
 	}
