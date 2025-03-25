@@ -1,0 +1,33 @@
+{
+	"name": "car_git_ds",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "githttpfinal",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"loadtype": {
+				"type": "string"
+			}
+		},
+		"folder": {
+			"name": "carprojectfulload"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation",
+				"relativeUrl": {
+					"value": "@concat('Nithil-bril/databricksadf_practice/refs/heads/main/Car%20project/',dataset().loadtype)",
+					"type": "Expression"
+				}
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
